@@ -3,10 +3,12 @@
  */
 'use strict';
 
+import path from 'path';
+
 module.exports = {
-    entry: "./src/Components/test_Component",
+    entry: path.join(__dirname, '/../src/Components/test_Component/FirstComponent'),
     output: {
-        path: "./build",
+        path: path.join(__dirname, '/../build'),
         filename: "build.js"
     }
 }
