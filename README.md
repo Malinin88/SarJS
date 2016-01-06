@@ -10,7 +10,7 @@ This is a code base for SaratovJS project.
 
 ### How to build
 
-Run "webpack" command with "webpack --config webpack.config-compiled.js"
+	webpack --config webpack.config-compiled.js
 
 ### Known Issues
 
