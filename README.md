@@ -10,6 +10,8 @@ This is a code base for SaratovJS project.
 
 ### How to build
 
+In console proceed to the "tools" directory and run: 
+
 	webpack --config webpack.config-compiled.js
 
 ### Known Issues
