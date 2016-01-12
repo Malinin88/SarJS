@@ -12,13 +12,15 @@ module.exports = {
         filename: "build.js"
     },
 
-    //module: {
-    //    loaders: [{
-    //        test: /\.jsx$/,
-    //        include: [
-    //            path.resolve(__dirname, '../src'),
-    //        ],
-    //        loader: 'babel-loader'
-    //    }]
-    //}
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader'
+        }]
+    },
+
+    watch: true,
+    watchOptions:{
+        aggregateTimeout: 100
+    }
 }
