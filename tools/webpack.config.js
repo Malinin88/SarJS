@@ -21,11 +21,24 @@ module.exports = {
         ]
     },
 
-    devtool: NODE_ENV == 'development' ? 'cheap-module-eval-source-map' : 'source-map',
+    devtool: NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
 
-    watch: NODE_ENV == 'development',
+    watch: NODE_ENV === 'development',
+
+    plugins: [],
 
     watchOptions:{
         aggregateTimeout: 100
     }
+};
+
+//minify for production
+if(NODE_ENV === 'production'){
+    module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress:{
+            warnings: false,
+            drop_console: true,
+            unsafe: true
+        }
+    }));
 }
