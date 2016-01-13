@@ -16,16 +16,14 @@ module.exports = {
 
     module: {
         loaders: [
-            { test: /\.js$/, loader: 'babel-loader'},
-            { test: /\.jsx$/, loader: 'babel-loader'}
+            { test: /\.js$/, exclude: /\/node_modules\//, loader: 'babel-loader'},
+            { test: /\.jsx$/, exclude: /\/node_modules\//, loader: 'babel-loader'}
         ]
     },
 
     devtool: NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
 
     watch: NODE_ENV === 'development',
-
-    plugins: [],
 
     watchOptions:{
         aggregateTimeout: 100
