@@ -4,6 +4,8 @@
 'use strict';
 
 var path = require('path');
+var webpack = require('webpack');
+var NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
     entry: path.join(__dirname, '/../src/Components/test_Component/FirstComponent'),
@@ -13,13 +15,16 @@ module.exports = {
     },
 
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loader: 'babel-loader'
-        }]
+        loaders: [
+            { test: /\.js$/, loader: 'babel-loader'},
+            { test: /\.jsx$/, loader: 'babel-loader'}
+        ]
     },
 
-    watch: true,
+    devtool: NODE_ENV == 'development' ? 'cheap-module-eval-source-map' : 'source-map',
+
+    watch: NODE_ENV == 'development',
+
     watchOptions:{
         aggregateTimeout: 100
     }
