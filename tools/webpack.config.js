@@ -21,16 +21,24 @@ module.exports = {
         ]
     },
 
+    //Add heavy-weight libraries, which do not contain any 'require' directives here
+    //in order not to parse them and to make the build faster
+    noParse: [
+        /react\/lib\/React.js/
+    ],
+
     devtool: NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
 
     watch: NODE_ENV === 'development',
 
     watchOptions:{
         aggregateTimeout: 100
-    }
+    },
+
+    plugins: []
 };
 
-//minify for production
+//Minify code for production
 if(NODE_ENV === 'production'){
     module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
         compress:{
