@@ -11,7 +11,8 @@ module.exports = {
     entry: path.join(__dirname, '/../src/Components/test_Component/FirstComponent'),
     output: {
         path: path.join(__dirname, '/../build'),
-        filename: "build.js"
+        filename: "build.js"//,
+        /*library: "firstComponent"*/ /// for external access
     },
 
     module: {
