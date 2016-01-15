@@ -11,7 +11,9 @@ This is a code base for SaratovJS project.
 In console proceed to the "tools" directory and run: 
 
 	NODE_ENV=development webpack
-	
+	or for windows (for ex. prod mode)
+	set NODE_ENV=production&&webpack
+
 or for production (minified):
 	
 	NODE_ENV=production webpack
