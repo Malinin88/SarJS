@@ -4,14 +4,15 @@
 'use strict';
 
 var path = require('path');
-var webpack = require('webpack');
-var NODE_ENV = process.env.NODE_ENV || 'development';
+const webpack = require('webpack');
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
     entry: path.join(__dirname, '/../src/Components/test_Component/FirstComponent'),
     output: {
         path: path.join(__dirname, '/../build'),
-        filename: "build.js"
+        filename: "build.js"//,
+        /*library: "firstComponent"*/ /// for external access
     },
 
     module: {
