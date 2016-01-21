@@ -1,16 +1,15 @@
 /**
  * Created by Novikov on 12/25/2015.
  */
-'use strict';
 
 var path = require('path');
 const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-    entry: path.join(__dirname, '/../src/Components/test_Component/FirstComponent'),
+    entry: path.join(__dirname, '/../public/javascripts/Components/test_Component/FirstComponent'),
     output: {
-        path: path.join(__dirname, '/../build'),
+        path: path.join(__dirname, '/../public/build'),
         filename: "build.js"//,
         /*library: "firstComponent"*/ /// for external access
     },

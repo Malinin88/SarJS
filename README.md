@@ -20,4 +20,6 @@ or for production (minified):
 
 ### Known Issues
 
-
+1) Anton M.: For some reason NPM doesn't install modules from the Express dependencies, when installing Express itself.
+There is an issue on SOF http://stackoverflow.com/questions/18401606/npm-doesnt-install-module-dependencies
+So I installed all the required modules manually with saving deps to the root-level package.json. 
