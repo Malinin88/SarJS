@@ -10,14 +10,15 @@ module.exports = {
     entry: path.join(__dirname, '/../public/javascripts/Components/test_Component/FirstComponent'),
     output: {
         path: path.join(__dirname, '/../public/build'),
-        filename: "build.js"//,
+        filename: 'build.js'//,
         /*library: "firstComponent"*/ /// for external access
     },
 
     module: {
         loaders: [
-            { test: /\.js$/, exclude: /\/node_modules\//, loader: 'babel-loader'},
-            { test: /\.jsx$/, exclude: /\/node_modules\//, loader: 'babel-loader'}
+            {test: /\.js$/, exclude: /\/node_modules\//, loader: 'babel-loader'},
+            {test: /\.jsx$/, exclude: /\/node_modules\//, loader: 'babel-loader'},
+            {test: /\.css$/, loader: 'style!css'}
         ]
     },
 
@@ -27,7 +28,8 @@ module.exports = {
         /react\/lib\/React.js/
     ],
 
-    devtool: NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
+    //devtool: NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
+    devtool: 'source-map',
 
     watch: NODE_ENV === 'development',
 
@@ -39,7 +41,7 @@ module.exports = {
 };
 
 //Minify code for production
-if(NODE_ENV === 'production'){
+if (NODE_ENV === 'production') {
     module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
         compress:{
             warnings: false,
