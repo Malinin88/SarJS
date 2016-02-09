@@ -17,7 +17,8 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.js$/, exclude: /\/node_modules\//, loader: 'babel-loader'},
-            {test: /\.jsx$/, exclude: /\/node_modules\//, loader: 'babel-loader'},
+            // query - The query of the request for the current loader
+            {test: /\.jsx$/, exclude: /\/node_modules\//, loader: 'babel-loader', query:{presets:['react']}},
             {test: /\.css$/, loader: 'style!css'}
         ]
     },
