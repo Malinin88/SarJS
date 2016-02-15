@@ -18,6 +18,11 @@ or for production (minified):
 	NODE_ENV=production webpack
 for windows:
     set NODE_ENV=production&&webpack
+    
+### How to create server configuration
+Node interpreter - smth like: C:\Program Files\nodejs\node.exe
+Javascript file: bin\www
+Also tick "Single instance only" - for only one server running
 
 ### Known Issues
 
