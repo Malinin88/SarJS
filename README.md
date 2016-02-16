@@ -23,6 +23,10 @@ for windows:
 Node interpreter - smth like: C:\Program Files\nodejs\node.exe
 Javascript file: bin\www
 Also tick "Single instance only" - for only one server running
+For finding "config" module in current folder too
+    Environment variables: NODE_PATH=.
+For logger:
+    Environment variables: NODE_ENV=development
 
 ### Known Issues
 
