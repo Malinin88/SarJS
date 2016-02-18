@@ -12,7 +12,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var log = require('./log')(module);
+var log = require('./libs/log')(module);
 var router = require('./api/content');
 
 const appServer = express(); //const appServer = global.server = express();
@@ -27,6 +27,7 @@ appServer.set('view engine', 'ejs');
 /**
  * Middleware
  */
+//todo for favicon we have to change path to build/public
 appServer.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 appServer.use(logger('dev'));
 appServer.use(bodyParser.json());
