@@ -21,7 +21,7 @@ for windows:
     
 ### How to create server configuration
 Node interpreter - smth like: C:\Program Files\nodejs\node.exe
-Javascript file: bin\www
+Javascript file: src\server.js
 Also tick "Single instance only" - for only one server running
 For finding "config" module in current folder too
     Environment variables: NODE_PATH=.

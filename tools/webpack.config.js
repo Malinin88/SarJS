@@ -7,11 +7,11 @@ const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-    entry: path.join(__dirname, '/../public/javascripts/Components/test_Component/FirstComponent'),
+    entry: path.join(__dirname, '/../src/app.js'),
     output: {
-        path: path.join(__dirname, '/../public/build'),
+        path: path.join(__dirname, '../build/public'),
         filename: 'build.js'//,
-        /*library: "firstComponent"*/ /// for external access
+        //todo: filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
     },
 
     module: {
@@ -29,6 +29,7 @@ module.exports = {
         /react\/lib\/React.js/
     ],
 
+    //todo: uncomment it in future:
     //devtool: NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
     devtool: 'source-map',
 
