@@ -5,7 +5,6 @@ var path = require('path');
 var express = require('express');
 var debug = require('debug')('SarJS:server');
 var http = require('http');
-var config = require('nconf');
 var errorHandler = require('errorhandler');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -13,6 +12,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var log = require('./libs/log')(module);
+var config = require('./config');
 var router = require('./api/content');
 
 const appServer = express(); //const appServer = global.server = express();
