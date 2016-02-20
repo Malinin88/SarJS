@@ -27,7 +27,7 @@ appServer.set('view engine', 'ejs');
 /**
  * Middleware
  */
-//todo for favicon we have to change path to build/public
+// [Novikov] todo for favicon we have to change path to build/public
 appServer.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 appServer.use(logger('dev'));
 appServer.use(bodyParser.json());

@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '../build/public'),
         filename: 'build.js'//,
-        //todo: filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
+        // [Novikov] todo: filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
     },
 
     module: {
@@ -29,7 +29,7 @@ module.exports = {
         /react\/lib\/React.js/
     ],
 
-    //todo: uncomment it in future:
+    // [Novikov] todo: uncomment it in future:
     //devtool: NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
     devtool: 'source-map',
 
