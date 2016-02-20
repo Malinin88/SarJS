@@ -27,6 +27,10 @@ For finding "config" module in current folder too
     Environment variables: NODE_PATH=.
 For logger:
     Environment variables: NODE_ENV=development
+    
+### How to start tests:
+    In console run:
+    npm test
 
 ### Known Issues
 
