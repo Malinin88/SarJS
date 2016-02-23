@@ -3,4 +3,4 @@
  */
 
 // [Novikov] todo: do we really have not another approach to start all tests instead of require?
-require('../src/components/ReduxCounter/counterReducerTests');
+require('../src/components/Examples/ReduxCounter/counterReducerTests');
