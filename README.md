@@ -38,7 +38,7 @@ For logger:
 There is an issue on SOF http://stackoverflow.com/questions/18401606/npm-doesnt-install-module-dependencies
 So I installed all the required modules manually with saving deps to the root-level package.json. 
 
-Debugger on windows:
+2) Novikov P.: Debugger on windows:
     You could get an error: 
         Cannot stop on breakpoint due to internal error: org.jetbrains.v8.V8CommandProcessor$1: 
     How to fix described there: https://youtrack.jetbrains.com/issue/IDEA-139990

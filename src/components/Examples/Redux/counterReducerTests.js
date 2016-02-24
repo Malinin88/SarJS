@@ -6,9 +6,9 @@
 //
 //A reducer should return the new state after applying the action to the previous state, and that’s the behavior tested below.
 
-var path = require('path');
-var expect = require('expect');
-var counterReducer = require(path.join(__dirname, 'counterReducer'));
+import path from 'path';
+import expect from 'expect';
+import { counterReducer } from './counterReducer';
 
 describe('Counter Reducer', () => {
     it ('Should return the initial state', () => {

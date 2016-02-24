@@ -2,7 +2,7 @@
 //
 //A reducer should return the new state after applying the action to the previous state
 
-const counterReducer = (state = 0, action) => {
+export const counterReducer = (state = 0, action) => {
 //function reduxCounter(state = 0, action) {
 
     // I've commented this because in ES6 we can specify default params in method signature ( = 0)
@@ -20,6 +20,3 @@ const counterReducer = (state = 0, action) => {
             return state;
     }
 };
-
-// [Novikov] todo: is it correct to export this module?
-module.exports = counterReducer;

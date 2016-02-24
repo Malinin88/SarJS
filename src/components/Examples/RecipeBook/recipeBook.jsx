@@ -1,5 +1,5 @@
-var React = require('react');
-var ReactDOM = require ('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 var Recipe = React.createClass({
     getInitialState: function () {
@@ -83,5 +83,5 @@ var RecipeBook = React.createClass({
 ReactDOM.render(
     <RecipeBook/>,
     /* Recipe book is just a function, attrs are args */
-    document.getElementById('app-container')
+    document.getElementById('app-examples')
 );

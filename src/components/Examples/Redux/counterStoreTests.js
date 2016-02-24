@@ -7,9 +7,9 @@
 //A store is an object that holds the application’s state tree.
 // There should only be a single store in a Redux app, as the composition happens on the reducer level.
 
-var path = require('path');
-var expect = require('expect');
-var counterStore = require(path.join(__dirname, 'counterStore'));
+import path from 'path';
+import expect from 'expect';
+import { counterStore } from './counterStore';
 
 describe('Counter Store', () => {
     it('Should return the initial state (getState())', () => {
