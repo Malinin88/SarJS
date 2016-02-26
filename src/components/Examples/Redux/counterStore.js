@@ -1,7 +1,6 @@
 /**
  * Created by Novikov on 2/23/2016.
  */
-import path from 'path';
 import { createStore } from 'redux';
 import { counterReducer } from './counterReducer';
 

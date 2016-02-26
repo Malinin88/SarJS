@@ -8,3 +8,4 @@ require('../src/components/Examples/Redux/counterStoreTests');
 require('../src/components/Examples/AvoidMutations/arrayMutationsTest');
 require('../src/components/Examples/AvoidMutations/objectMutationsTest');
 require('../src/components/Examples/TodoList/todosReducerTests');
+require('../src/components/Examples/TodoList/todosStoreTests');

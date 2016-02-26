@@ -7,7 +7,6 @@
 //A store is an object that holds the application’s state tree.
 // There should only be a single store in a Redux app, as the composition happens on the reducer level.
 
-import path from 'path';
 import expect from 'expect';
 import { counterStore } from './counterStore';
 
@@ -41,6 +40,5 @@ describe('Counter Store', () => {
         counterStore.dispatch({type: 'INCREMENT'});
         expect(callBackResult).toEqual(1);
     });
-
 
 });

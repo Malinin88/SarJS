@@ -28,6 +28,27 @@ describe('Todo Reducer', () => {
         ).toEqual(state);
     });
 
+    it ('Should ADD_TODO to todo list', () =>{
+        const stateBefore = [];
+        const action = {
+            type: 'ADD_TODO',
+            text: 'Learn Redux',
+            id: 0
+        };
+        const stateAfter = [
+            {
+                id: 0,
+                text: 'Learn Redux',
+                completed: false
+            }
+        ];
+        deepFreeze(stateBefore);
+        deepFreeze(action);
+        expect(
+            todosReducer(stateBefore, action)
+        ).toEqual(stateAfter);
+    });
+
     it('Should TOGGLE item in todo list', () => {
         const stateBefore = [
             {
