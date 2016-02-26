@@ -5,10 +5,10 @@
 import expect from 'expect';
 import { todoListStore } from './todoListStore';
 
-describe('Counter Store', () => {
+describe('Todo Store', () => {
     it('Should return the initial state (getState())', () => {
         expect(
-            todoListStore.getState()
+            todoListStore.getState().todos
         ).toEqual([]);
     });
 
@@ -19,7 +19,7 @@ describe('Counter Store', () => {
             text: 'Learn Redux'
         });
         expect(
-            todoListStore.getState()
+            todoListStore.getState().todos
         ).toEqual([
             {
                 id: 0,
@@ -29,6 +29,16 @@ describe('Counter Store', () => {
         ]);
     });
 
+    it('Should SET_VISIBILITY_FILTER using dispatch function', () => {
+        todoListStore.dispatch({
+            type: 'SET_VISIBILITY_FILTER',
+            filter: 'SHOW_COMPLETED'
+        });
+        expect(
+            todoListStore.getState().visibilityFilter
+        ).toEqual('SHOW_COMPLETED');
+    });
+
     it('Should add another ADD_TODO to the end of the store using dispatch function', () => {
         todoListStore.dispatch({
             type: 'ADD_TODO',
@@ -36,7 +46,7 @@ describe('Counter Store', () => {
             text: 'Go shopping'
         });
         expect(
-            todoListStore.getState()
+            todoListStore.getState().todos
         ).toEqual([
             {
                 id: 0,
@@ -57,7 +67,7 @@ describe('Counter Store', () => {
             id: 1
         });
         expect(
-            todoListStore.getState()
+            todoListStore.getState().todos
         ).toEqual([
             {
                 id: 0,

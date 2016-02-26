@@ -3,6 +3,14 @@
  */
 
 import { createStore } from 'redux';
-import { todosReducer } from './todosReducer';
+import { combineReducers } from 'redux';
 
-export const todoListStore = createStore(todosReducer);
+import { todosReducer } from './todosReducer';
+import { visibilityFilterReducer } from './visibilityFilterReducer';
+
+const todoListComponent = combineReducers({
+    todos: todosReducer,
+    visibilityFilter: visibilityFilterReducer
+});
+
+export const todoListStore = createStore(todoListComponent);
