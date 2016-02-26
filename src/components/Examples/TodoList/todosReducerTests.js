@@ -5,12 +5,12 @@
 import path from 'path';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
-import { todoReducer } from './todoReducer';
+import { todosReducer } from './todosReducer';
 
 describe('Todo Reducer', () => {
     it('Should return the initial state', () => {
         expect(
-            todoReducer(undefined, {})
+            todosReducer(undefined, {})
         ).toEqual([]);
     });
 
@@ -24,7 +24,7 @@ describe('Todo Reducer', () => {
         ];
         deepFreeze(state);
         expect(
-            todoReducer(state, {type: 'SOMETHING_ELSE'})
+            todosReducer(state, {type: 'SOMETHING_ELSE'})
         ).toEqual(state);
     });
 
@@ -60,7 +60,7 @@ describe('Todo Reducer', () => {
         deepFreeze(stateBefore);
         deepFreeze(action);
         expect(
-            todoReducer(stateBefore, action)
+            todosReducer(stateBefore, action)
         ).toEqual(stateAfter);
     });
 });

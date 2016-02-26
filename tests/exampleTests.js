@@ -7,4 +7,4 @@ require('../src/components/Examples/Redux/counterReducerTests');
 require('../src/components/Examples/Redux/counterStoreTests');
 require('../src/components/Examples/AvoidMutations/arrayMutationsTest');
 require('../src/components/Examples/AvoidMutations/objectMutationsTest');
-require('../src/components/Examples/TodoList/todoReducerTests');
+require('../src/components/Examples/TodoList/todosReducerTests');
