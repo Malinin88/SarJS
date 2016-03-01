@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { todoListStore } from './todoListStore';
+import { AddTodo } from './addTodo.jsx';
 import { TodoList } from './todoList.jsx';
 import { FilterLink } from './filterLink.jsx'
 const { Component } = React;
@@ -33,20 +34,15 @@ class TodoComponent extends Component {
         );
         return (
             <div>
-                <input ref={node => {
-                    this.input = node;
-                }}
+                <AddTodo
+                    onAddClick={text =>
+                        todoListStore.dispatch({
+                            type: 'ADD_TODO',
+                            text: text,
+                            id: nextTodoId++
+                        })
+                    }
                 />
-                <button onClick={() => {
-                    todoListStore.dispatch({
-                        type: 'ADD_TODO',
-                        text: this.input.value,
-                        id: nextTodoId++
-                    });
-                    this.input.value = '';
-                }}>
-                    Add Todo
-                </button>
                 <TodoList
                     todos={visibleTodos}
                     onTodoClick={id =>
