@@ -1,4 +1,3 @@
-import path from 'path';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { counterStore } from './counterStore';
