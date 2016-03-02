@@ -6,4 +6,4 @@
 
 //require('../src/components/Examples/Redux/counter.jsx');
 
-require('../src/components/Examples/TodoList/todoComponent.jsx');
+require('../src/components/Examples/TodoList/components/todoComponent.jsx');

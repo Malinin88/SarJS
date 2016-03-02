@@ -2,8 +2,6 @@
  * Created by Novikov on 2/20/2016.
  */
 
-//Reducers
-//
 //A reducer should return the new state after applying the action to the previous state, and that’s the behavior tested below.
 
 import path from 'path';

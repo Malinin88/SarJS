@@ -3,7 +3,7 @@
  */
 
 import expect from 'expect';
-import { todoListStore } from './todoListStore';
+import todoListStore from '../index';
 
 describe('Todo Store', () => {
     it('Should return the initial state (getState())', () => {

@@ -27,7 +27,7 @@ const todoReducer = (state, action) => {
 };
 
 // todoList reducer
-export const todosReducer = (state = [], action) => {
+const todosReducer = (state = [], action) => {
     switch (action.type) {
         case ('ADD_TODO'):
             return [
@@ -35,10 +35,10 @@ export const todosReducer = (state = [], action) => {
                 todoReducer(undefined, action)
             ];
         case ('TOGGLE_TODO'):
-        {
             return state.map(t => todoReducer(t, action));
-        }
         default:
             return state;
     }
 };
+
+export default todosReducer;

@@ -4,7 +4,7 @@
 
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
-import { visibilityFilterReducer } from './visibilityFilterReducer';
+import visibilityFilterReducer from '../reducers/visibilityFilterReducer';
 
 describe('Visibility Filter Reducer', () => {
     it('Should return the initial state', () => {

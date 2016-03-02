@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { todoListStore } from './todoListStore';
+import todoListStore from './../index';
+import { addTodo } from '../actions';
+import { setVisibilityFilter } from '../actions';
+import { toggleTodo } from '../actions';
 import { AddTodo } from './addTodo.jsx';
 import { TodoList } from './todoList.jsx';
 import { Footer } from './footer.jsx'
@@ -20,7 +23,6 @@ const getVisibleTodos = (todos, filter) => {
     }
 };
 
-let nextTodoId = 0;
 const TodoComponent = ({
     todos,
     visibilityFilter
@@ -28,11 +30,7 @@ const TodoComponent = ({
     <div>
         <AddTodo
             onAddClick={text =>
-                todoListStore.dispatch({
-                    type: 'ADD_TODO',
-                    text: text,
-                    id: nextTodoId++
-                })
+                todoListStore.dispatch(addTodo(text))
             }
         />
         <TodoList
@@ -41,18 +39,13 @@ const TodoComponent = ({
                 visibilityFilter
             )}
             onTodoClick={id =>
-                todoListStore.dispatch({
-                    type: 'TOGGLE_TODO',
-                    id
-                })
-            }/>
+                todoListStore.dispatch(toggleTodo(id))
+            }
+        />
         <Footer
             visibilityFilter={visibilityFilter}
             onFilterClick={filter =>
-                todoListStore.dispatch({
-                    type: 'SET_VISIBILITY_FILTER',
-                    filter
-                })
+                todoListStore.dispatch(setVisibilityFilter(filter))
             }
         />
     </div>
