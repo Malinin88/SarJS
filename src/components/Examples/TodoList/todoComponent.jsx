@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import { todoListStore } from './todoListStore';
 import { AddTodo } from './addTodo.jsx';
 import { TodoList } from './todoList.jsx';
-import { FilterLink } from './filterLink.jsx'
-const { Component } = React;
+import { Footer } from './footer.jsx'
 
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
@@ -22,63 +21,42 @@ const getVisibleTodos = (todos, filter) => {
 };
 
 let nextTodoId = 0;
-class TodoComponent extends Component {
-    render() {
-        const {
-            todos,
-            visibilityFilter
-            } = this.props;
-        const visibleTodos = getVisibleTodos(
-            todos,
-            visibilityFilter
-        );
-        return (
-            <div>
-                <AddTodo
-                    onAddClick={text =>
-                        todoListStore.dispatch({
-                            type: 'ADD_TODO',
-                            text: text,
-                            id: nextTodoId++
-                        })
-                    }
-                />
-                <TodoList
-                    todos={visibleTodos}
-                    onTodoClick={id =>
-                        todoListStore.dispatch({
-                            type: 'TOGGLE_TODO',
-                            id
-                        })
-                    } />
-                <p>
-                    Show:
-                    {' '}
-                    <FilterLink
-                        filter='SHOW_ALL'
-                        currentFilter={visibilityFilter}
-                    >
-                        All
-                    </FilterLink>
-                    {' '}
-                    <FilterLink
-                        filter='SHOW_ACTIVE'
-                        currentFilter={visibilityFilter}
-                    >
-                        Active
-                    </FilterLink>
-                    {' '}
-                    <FilterLink
-                        filter='SHOW_COMPLETED'
-                        currentFilter={visibilityFilter}
-                    >
-                        Completed
-                    </FilterLink>
-                </p>
-            </div>
-        );
-    }
-}
+const TodoComponent = ({
+    todos,
+    visibilityFilter
+    }) => (
+    <div>
+        <AddTodo
+            onAddClick={text =>
+                todoListStore.dispatch({
+                    type: 'ADD_TODO',
+                    text: text,
+                    id: nextTodoId++
+                })
+            }
+        />
+        <TodoList
+            todos={getVisibleTodos(
+                todos,
+                visibilityFilter
+            )}
+            onTodoClick={id =>
+                todoListStore.dispatch({
+                    type: 'TOGGLE_TODO',
+                    id
+                })
+            }/>
+        <Footer
+            visibilityFilter={visibilityFilter}
+            onFilterClick={filter =>
+                todoListStore.dispatch({
+                    type: 'SET_VISIBILITY_FILTER',
+                    filter
+                })
+            }
+        />
+    </div>
+);
 
 const render = () => {
     ReactDOM.render(
