@@ -27,8 +27,10 @@ import TodoComponent from './components/todoComponent.jsx';
 };
  */
 
+let store = createStore(todoListCombinedReducers);
+
 ReactDOM.render(
-    <Provider store={createStore(todoListCombinedReducers)}>
+    <Provider store={store}>
         <TodoComponent />
     </Provider>,
     document.getElementById('app-examples')
