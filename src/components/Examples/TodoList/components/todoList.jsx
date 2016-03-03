@@ -1,24 +1,7 @@
 import React from 'react';
+import Todo from './todo.jsx'
 
-const Todo = ({
-    onClick,
-    completed,
-    text
-    }) => (
-    <li
-        onClick={onClick}
-        style={{
-            textDecoration:
-                completed ?
-                    'line-through' :
-                    'none'
-        }}
-    >
-        {text}
-    </li>
-);
-
-export const TodoList = ({
+const TodoList = ({
     todos,
     onTodoClick
     }) => (
@@ -33,3 +16,4 @@ export const TodoList = ({
     </ul>
 );
 
+export default TodoList;

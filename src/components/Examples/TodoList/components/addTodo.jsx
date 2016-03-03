@@ -1,8 +1,8 @@
 import React from 'react';
+import todoListStore from '../index';
+import { addTodo } from '../actions';
 
-export const AddTodo = ({
-    onAddClick
-    }) => {
+const AddTodo = () => {
     let input;
 
     return (
@@ -12,7 +12,7 @@ export const AddTodo = ({
                 }}
             />
             <button onClick={() => {
-                onAddClick(input.value);
+                todoListStore.dispatch(addTodo(input.value))
                 input.value = '';
             }}>
                 Add Todo
@@ -20,3 +20,5 @@ export const AddTodo = ({
         </div>
     );
 };
+
+export default AddTodo;
