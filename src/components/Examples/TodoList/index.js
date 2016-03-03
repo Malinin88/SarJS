@@ -1,10 +1,35 @@
 /**
  * Created by Novikov on 2/26/2016.
  */
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import todoListComponent from './reducers'
+import { Provider } from 'react-redux';
+import todoListCombinedReducers from './reducers';
+import TodoComponent from './components/todoComponent.jsx';
 
-const todoListStore = createStore(todoListComponent);
+/**
+ * Own implementation of the React-Redux Provider
+ *
+ class Provider extends Component {
+    getChildContext() {
+        return {
+            store: this.props.store
+        }
+    }
 
-export default todoListStore;
+    render() {
+        return this.props.children;
+    }
+}
+ Provider.childContextTypes = {
+  store: React.PropTypes.object
+};
+ */
+
+ReactDOM.render(
+    <Provider store={createStore(todoListCombinedReducers)}>
+        <TodoComponent />
+    </Provider>,
+    document.getElementById('app-examples')
+);

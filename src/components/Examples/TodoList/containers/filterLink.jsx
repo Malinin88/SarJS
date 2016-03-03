@@ -1,12 +1,33 @@
-import React from 'react';
-import Link from '../components/link.jsx';
+import { connect } from 'react-redux';
 import { setVisibilityFilter } from '../actions';
-import todoListStore from '../index';
-const { Component } = React;
+import Link from '../components/link.jsx';
 
-class FilterLink extends Component {
+const mapStateToProps = (state, ownProps) => {
+    return {
+        active: ownProps.filter === state.visibilityFilter
+    };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        onClick: () =>
+            dispatch(setVisibilityFilter(ownProps.filter))
+    };
+};
+
+const FilterLink = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Link);
+
+/**
+ * Example how to realize FilterLink without using React-Redux connect
+ const { Component } = React;
+
+ class FilterLink extends Component {
     componentDidMount() {
-        this.unsubscribe = todoListStore.subscribe(() =>
+        const {store} = this.context;
+        this.unsubscribe = store.subscribe(() =>
             this.forceUpdate()
         );
     }
@@ -17,7 +38,8 @@ class FilterLink extends Component {
 
     render() {
         const props = this.props;
-        const state = todoListStore.getState();
+        const {store} = this.context;
+        const state = store.getState();
 
         return (
             <Link
@@ -25,7 +47,7 @@ class FilterLink extends Component {
                     props.filter === state.visibilityFilter
                 }
                 onClick={() =>
-                    todoListStore.dispatch(setVisibilityFilter(props.filter))
+                    store.dispatch(setVisibilityFilter(props.filter))
                 }
             >
                 {props.children}
@@ -33,5 +55,9 @@ class FilterLink extends Component {
         );
     }
 }
+ FilterLink.contextTypes = {
+    store: React.PropTypes.object
+};
+ */
 
 export default FilterLink;

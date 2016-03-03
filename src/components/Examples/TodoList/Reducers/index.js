@@ -25,9 +25,9 @@ import { combineReducers } from 'redux';
 import todosReducer from './todosReducer';
 import visibilityFilterReducer from './visibilityFilterReducer';
 
-const todoListComponent = combineReducers({
+const todoListCombinedReducers = combineReducers({
     todos: todosReducer,
     visibilityFilter: visibilityFilterReducer
 });
 
-export default todoListComponent;
+export default todoListCombinedReducers;

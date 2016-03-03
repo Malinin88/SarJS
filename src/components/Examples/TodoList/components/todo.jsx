@@ -9,7 +9,8 @@ const Todo = ({
         onClick={onClick}
         style={{
             textDecoration:
-                completed ? 'line-through' : 'none'
+                completed ? 'line-through' : 'none',
+            cursor: 'pointer'
         }}
     >
         {text}
