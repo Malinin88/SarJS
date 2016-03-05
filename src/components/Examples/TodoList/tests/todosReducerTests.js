@@ -4,6 +4,7 @@
 
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
+import * as actionTypes from '../constants/actionTypes';
 import todosReducer from '../reducers/todosReducer';
 
 describe('Todo Reducer', () => {
@@ -30,7 +31,7 @@ describe('Todo Reducer', () => {
     it ('Should ADD_TODO to todo list', () =>{
         const stateBefore = [];
         const action = {
-            type: 'ADD_TODO',
+            type: actionTypes.ADD_TODO,
             text: 'Learn Redux',
             id: 0
         };
@@ -62,7 +63,7 @@ describe('Todo Reducer', () => {
             }
         ];
         const action = {
-            type: 'TOGGLE_TODO',
+            type: actionTypes.TOGGLE_TODO,
             id: 1
         };
         const stateAfter = [

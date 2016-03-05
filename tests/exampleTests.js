@@ -7,6 +7,5 @@ require('../src/components/Examples/Redux/counterReducerTests');
 require('../src/components/Examples/Redux/counterStoreTests');
 require('../src/components/Examples/AvoidMutations/arrayMutationsTest');
 require('../src/components/Examples/AvoidMutations/objectMutationsTest');
-require('../src/components/Examples/TodoList/tests/todosReducerTests');
-require('../src/components/Examples/TodoList/tests/visibilityFilterReducerTests');
-require('../src/components/Examples/TodoList/tests/todosStoreTests');
+
+require('../src/components/Examples/TodoList/tests/startTests');

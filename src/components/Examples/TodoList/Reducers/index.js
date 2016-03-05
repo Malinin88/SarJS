@@ -26,8 +26,8 @@ import todosReducer from './todosReducer';
 import visibilityFilterReducer from './visibilityFilterReducer';
 
 const todoListCombinedReducers = combineReducers({
-    todos: todosReducer,
-    visibilityFilter: visibilityFilterReducer
+	todos: todosReducer,
+	visibilityFilter: visibilityFilterReducer
 });
 
 export default todoListCombinedReducers;

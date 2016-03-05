@@ -3,10 +3,11 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import todoListCombinedReducers from './reducers';
 import TodoComponent from './components/todoComponent.jsx';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
 
 /**
  * Own implementation of the React-Redux Provider
@@ -27,11 +28,9 @@ import TodoComponent from './components/todoComponent.jsx';
 };
  */
 
-let store = createStore(todoListCombinedReducers);
-
 ReactDOM.render(
-    <Provider store={store}>
-        <TodoComponent />
-    </Provider>,
-    document.getElementById('app-examples')
+	<Provider store={store}>
+		<TodoComponent />
+	</Provider>,
+	document.getElementById('app-examples')
 );
