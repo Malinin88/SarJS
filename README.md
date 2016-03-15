@@ -31,6 +31,15 @@ For logger:
 ### How to start tests:
     In console run:
     npm test
+    
+### How to debug tests:
+    1. Install globally node-inspector (https://github.com/node-inspector/node-inspector)
+        npm install -g node-inspector
+    2. Run command: node-inspector
+    3. Start task debug-test
+    4. Open browser on page http://127.0.0.1:8080/?port=5858
+    5. Wait while tests starts loading.
+    6. Now you can pin breakpoints in browser
 
 ### Known Issues
 

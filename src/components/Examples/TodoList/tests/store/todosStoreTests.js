@@ -3,8 +3,8 @@
  */
 
 import expect from 'expect';
-import * as actionTypes from '../constants/actionTypes';
-import configureStore from '../store/configureStore';
+import * as actionTypes from '../../constants/actionTypes';
+import configureStore from '../../store/configureStore';
 
 const store = configureStore();
 

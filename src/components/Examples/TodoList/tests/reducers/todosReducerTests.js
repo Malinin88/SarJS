@@ -4,8 +4,8 @@
 
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
-import * as actionTypes from '../constants/actionTypes';
-import todosReducer from '../reducers/todosReducer';
+import * as actionTypes from '../../constants/actionTypes';
+import todosReducer from '../../reducers/todosReducer';
 
 describe('Todo Reducer', () => {
     it('Should return the initial state', () => {

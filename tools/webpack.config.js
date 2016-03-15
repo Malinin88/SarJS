@@ -48,8 +48,7 @@ module.exports = {
 				query: {
 					plugins: ['transform-runtime']
 				}
-			},
-			{
+			}, {
 				test: /\.css$/,
 				loader: 'style!css'
 			}
@@ -68,7 +67,7 @@ module.exports = {
 		aggregateTimeout: 100
 	},
 
-	plugins:[
+	plugins: [
 		...(!DEBUG ? [
 			new webpack.optimize.UglifyJsPlugin({
 				compress: {

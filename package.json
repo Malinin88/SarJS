@@ -5,6 +5,7 @@
   "scripts": {
     "start": "babel-node src/server",
     "test": "mocha ./tests --compilers js:babel-register --recursive",
+    "test-debug": "npm test -- --hidden node_modules/ --no-preload --debug-brk",
     "test:watch": "npm test -- --watch"
   },
   "dependencies": {
@@ -33,10 +34,13 @@
     "ejs": "^2.3.4",
     "errorhandler": "^1.4.3",
     "expect": "^1.14.0",
+    "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
+    "mocha-jsdom": "^1.1.0",
     "morgan": "^1.6.1",
     "nconf": "^0.8.4",
     "react": "^0.14.7",
+    "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
     "redux": "^3.3.1",

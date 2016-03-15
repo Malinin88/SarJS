@@ -2,6 +2,7 @@
  * Created by Novikov on 3/5/2016.
  */
 
-require('./todosReducerTests');
-require('./visibilityFilterReducerTests');
-require('./todosStoreTests');
+require('./reducers/todosReducerTests');
+require('./reducers/visibilityFilterReducerTests');
+require('./store/todosStoreTests');
+require('./components/addTodoTests');
