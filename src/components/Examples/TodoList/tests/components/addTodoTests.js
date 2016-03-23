@@ -2,8 +2,6 @@
  * Created by Novikov on 3/10/2016.
  */
 
-/** AddTodo component tests*/
-
 import expect from 'expect';
 import React from 'react';
 import jsdom from 'mocha-jsdom';

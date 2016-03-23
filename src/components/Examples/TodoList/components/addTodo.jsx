@@ -13,7 +13,7 @@ let AddTodo = ({ dispatch }) => {
 					return;
 				}
 				dispatch(addTodo(input.value));
-                input.value = '';
+				input.value = '';
 			}}>
 				<input ref={node => {
 					input = node;
