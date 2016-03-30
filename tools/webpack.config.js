@@ -34,6 +34,17 @@ module.exports = {
 	devtool: 'source-map',
 
 	module: {
+		//preLoaders:[
+		//	{
+		//		test: /\.jsx?$/,
+		//		include: [
+		//			path.resolve(__dirname, '../tests'),
+		//			path.resolve(__dirname, '../src')
+		//		],
+		//		loader: 'jshint-loader'
+		//	}
+		//
+		//],
 		loaders: [
 			{
 				// Only run `.js` and `.jsx` files through Babel
@@ -82,16 +93,16 @@ module.exports = {
 			new webpack.HotModuleReplacementPlugin(),
 			new webpack.NoErrorsPlugin()
 		] : [])
-	]
+	],
 
 	/* resolveLoader: {
 	 root: path.join(__dirname, "node_modules")
 	 },
-
-	 resolve: {
-	 root: path.join(__dirname, "node_modules"),
-	 modulesDirectories: ['node_modules'],
-	 extensions: ['', '.js', '.jsx']
-	 }*/
+	 */
+	resolve: {
+		//root: path.join(__dirname, "node_modules"),
+		//modulesDirectories: ['node_modules'],
+		extensions: ['', '.js', '.jsx']
+	}
 
 };

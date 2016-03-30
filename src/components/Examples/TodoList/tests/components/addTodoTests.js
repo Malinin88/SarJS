@@ -4,14 +4,12 @@
 
 import expect from 'expect';
 import React from 'react';
-import jsdom from 'mocha-jsdom';
 import TestUtils from 'react-addons-test-utils';
-import AddTodo from '../../components/addTodo.jsx';
+import AddTodo from '../../components/addTodo';
 import configureStore from '../../store/configureStore';
 
 
 describe('AddTodo Component', () => {
-	jsdom();
 
 	before('render and locate element', function () {
 		let props = {

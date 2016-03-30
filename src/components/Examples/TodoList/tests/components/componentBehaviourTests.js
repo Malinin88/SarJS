@@ -6,7 +6,7 @@ import expect from 'expect';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
-import TodoComponent from '../../components/todoComponent.jsx';
+import TodoComponent from '../../components/todoComponent';
 import configureStore from '../../store/configureStore';
 
 describe('Full Todo Component behaviour tests', () => {
