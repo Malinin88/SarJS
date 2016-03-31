@@ -4,8 +4,8 @@
  * https://github.com/unicorn-standard/starter-kit/blob/master/webpack.config.js
  */
 
-import path from 'path';
-import webpack from 'webpack';
+const path = require('path');
+const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const DEBUG = NODE_ENV === 'development';
 //const WATCH = global.WATCH === undefined ? false : global.WATCH;
@@ -24,10 +24,6 @@ module.exports = {
 		path: path.resolve(__dirname, '../build/public'),
 		filename: 'build.js'
 		// [Novikov] todo: filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
-	},
-
-	devServer: {
-		contentBase: '../build/public'
 	},
 
 	//cache: DEBUG,
