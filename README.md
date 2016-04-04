@@ -50,9 +50,9 @@ meet the SarJS requirements.
 
 In order to use built-in WebStorm ESLint plugin for live validation of the source code, you should provide corresponding set up:
 
-1) Install ESLint globally;
-2) Open WebStorm Preferences -> Tools -> Languages & Frameworks -> JavaScript -> Code Quality Tools -> ESLint, make ESLint enabled,
-and set a path to the ESLint configuration file (.eslintrc). The file is present in the "tools" folder of the SarJS project;
+    1) Install ESLint globally;
+    2) Open WebStorm Preferences -> Tools -> Languages & Frameworks -> JavaScript -> Code Quality Tools -> ESLint, make ESLint enabled,
+    and set a path to the ESLint configuration file (.eslintrc). The file is present in the "tools" folder of the SarJS project;
 
 ESLInt configuration docs: http://eslint.org/docs/user-guide/configuring 
 
