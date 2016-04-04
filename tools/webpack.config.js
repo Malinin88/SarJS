@@ -4,8 +4,8 @@
  * https://github.com/unicorn-standard/starter-kit/blob/master/webpack.config.js
  */
 
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const DEBUG = NODE_ENV === 'development';
 //const WATCH = global.WATCH === undefined ? false : global.WATCH;

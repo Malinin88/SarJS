@@ -6,18 +6,18 @@ This is a code base for SaratovJS project.
 
 2) Run "npm i" from root directory of the SarJS project;
 
-### How to build
+3) Globally install babel-cli
+    npm install -g babel-cli
 
-In console proceed to the "tools" directory and run: 
+### How to Build
 
-	NODE_ENV=development webpack
-	or for windows:
-	set NODE_ENV=development&&webpack
+```shell
+$ npm run build                 # or, `npm run build -- --release`
+```
 
-or for production (minified):	
-	NODE_ENV=production webpack
-for windows:
-    set NODE_ENV=production&&webpack
+By default, it builds in *debug* mode. If you need to build in release
+mode, just add a `-- --release` flag. This will optimize the output bundle for
+production.
     
 ### How to create server configuration
 Node interpreter - smth like: C:\Program Files\nodejs\node.exe

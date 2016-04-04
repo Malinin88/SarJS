@@ -1,25 +1,37 @@
 /**
  * Created by amalinin on 31/03/16.
  */
+
 import webpack from 'webpack';
-import webpackConfig from './webpack.config.js'; // <-- Contains ES6+
+import webpackConfig from './webpack.config';
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const WATCH = NODE_ENV === 'development';
-const bundler = webpack(webpackConfig);
+/**
+ * Bundles JavaScript, CSS and images into one or more packages
+ * ready to be used in a browser.
+ */
+function bundle() {
+	return new Promise((resolve, reject) => {
+		const bundler = webpack(webpackConfig);
+		let bundlerRunCount = 0;
 
-if (WATCH) {
-    bundler.watch(200, onComplete);
-    console.log('Run webpack watcher...')
-} else {
-    bundler.run(onComplete);
-    console.log('No webpack watcher...')
+		function onComplete(err, stats) {
+			if (err) {
+				return reject(err);
+			}
+
+			console.log(stats.toString(webpackConfig[0].stats));
+
+			if (++bundlerRunCount === (global.WATCH ? webpackConfig.length : 1)) {
+				return resolve();
+			}
+		}
+
+		if (global.WATCH) {
+			bundler.watch(200, onComplete);
+		} else {
+			bundler.run(onComplete);
+		}
+	});
 }
 
-function onComplete(err, stats) {
-    if (err) {
-        console.log('Error:' + err);
-    }
-
-    console.log(stats.toString(webpackConfig.stats));
-}
+module.exports = bundle;
