@@ -4,8 +4,8 @@
  * https://github.com/unicorn-standard/starter-kit/blob/master/webpack.config.js
  */
 
-import path from 'path';
-import webpack from 'webpack';
+const path = require('path');
+const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const DEBUG = NODE_ENV === 'development';
 //const WATCH = global.WATCH === undefined ? false : global.WATCH;
@@ -45,6 +45,15 @@ module.exports = {
 		//	}
 		//
 		//],
+		preLoaders: [
+			{
+				test: /\.js$/,
+				include: [
+					path.resolve(__dirname, '../tests'),
+					path.resolve(__dirname, '../src')
+				],
+				loader: "eslint-loader"}
+		],
 		loaders: [
 			{
 				// Only run `.js` and `.jsx` files through Babel
@@ -91,7 +100,7 @@ module.exports = {
 		] : []),
 		...(WATCH ? [
 			new webpack.HotModuleReplacementPlugin(),
-			new webpack.NoErrorsPlugin()
+			//new webpack.NoErrorsPlugin()
 		] : [])
 	],
 
@@ -103,6 +112,8 @@ module.exports = {
 		//root: path.join(__dirname, "node_modules"),
 		//modulesDirectories: ['node_modules'],
 		extensions: ['', '.js', '.jsx']
-	}
-
+	},
+    eslint: {
+        configFile: '.eslintrc'
+    }
 };
