@@ -45,6 +45,15 @@ module.exports = {
 		//	}
 		//
 		//],
+		preLoaders: [
+			{
+				test: /\.js$/,
+				include: [
+					path.resolve(__dirname, '../tests'),
+					path.resolve(__dirname, '../src')
+				],
+				loader: "eslint-loader"}
+		],
 		loaders: [
 			{
 				// Only run `.js` and `.jsx` files through Babel
@@ -91,7 +100,7 @@ module.exports = {
 		] : []),
 		...(WATCH ? [
 			new webpack.HotModuleReplacementPlugin(),
-			new webpack.NoErrorsPlugin()
+			//new webpack.NoErrorsPlugin()
 		] : [])
 	],
 
@@ -103,6 +112,8 @@ module.exports = {
 		//root: path.join(__dirname, "node_modules"),
 		//modulesDirectories: ['node_modules'],
 		extensions: ['', '.js', '.jsx']
-	}
-
+	},
+    eslint: {
+        configFile: 'tools/.eslintrc'
+    }
 };
