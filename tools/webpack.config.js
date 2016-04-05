@@ -114,6 +114,6 @@ module.exports = {
 		extensions: ['', '.js', '.jsx']
 	},
     eslint: {
-        configFile: '.eslintrc'
+        configFile: path.resolve(__dirname, '.eslintrc')
     }
 };

@@ -10,20 +10,20 @@ export const addTodo = (text) => {
 	return {
 		type: actionTypes.ADD_TODO,
 		text: text,
-		id: nextTodoId++
-	}
+		id: nextTodoId += 1
+	};
 };
 
 export const setVisibilityFilter = (filter) => {
 	return {
 		type: actionTypes.SET_VISIBILITY_FILTER,
 		filter
-	}
+	};
 };
 
 export const toggleTodo = (id) => {
 	return {
 		type: actionTypes.TOGGLE_TODO,
 		id
-	}
+	};
 };
