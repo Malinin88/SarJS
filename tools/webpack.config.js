@@ -8,7 +8,7 @@ const path = require('path');
 const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const DEBUG = NODE_ENV === 'development';
-//const WATCH = global.WATCH === undefined ? false : global.WATCH;
+// const WATCH = global.WATCH === undefined ? false : global.WATCH;
 const WATCH = NODE_ENV === 'development';
 
 module.exports = {
@@ -26,33 +26,23 @@ module.exports = {
 		// [Novikov] todo: filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
 	},
 
-	//cache: DEBUG,
-	//debug: DEBUG,
+	// cache: DEBUG,
+	// debug: DEBUG,
 
 	// [Novikov] todo: uncomment it in future:
-	//devtool: DEBUG ? 'cheap-module-eval-source-map' : 'source-map',
+	// devtool: DEBUG ? 'cheap-module-eval-source-map' : 'source-map',
 	devtool: 'source-map',
 
 	module: {
-		//preLoaders:[
-		//	{
-		//		test: /\.jsx?$/,
-		//		include: [
-		//			path.resolve(__dirname, '../tests'),
-		//			path.resolve(__dirname, '../src')
-		//		],
-		//		loader: 'jshint-loader'
-		//	}
-		//
-		//],
 		preLoaders: [
 			{
-				test: /\.js$/,
+				test: /\.jsx?$/,
 				include: [
 					path.resolve(__dirname, '../tests'),
 					path.resolve(__dirname, '../src')
 				],
-				loader: "eslint-loader"}
+				loader: 'eslint-loader'
+			}
 		],
 		loaders: [
 			{
@@ -75,8 +65,8 @@ module.exports = {
 		]
 	},
 
-	//Add heavy-weight libraries, which do not contain any 'require' directives here
-	//in order not to parse them and to make the build faster
+	// Add heavy-weight libraries, which do not contain any 'require' directives here
+	// in order not to parse them and to make the build faster
 	noParse: [
 		/react\/lib\/React.js/
 	],
@@ -100,7 +90,7 @@ module.exports = {
 		] : []),
 		...(WATCH ? [
 			new webpack.HotModuleReplacementPlugin(),
-			//new webpack.NoErrorsPlugin()
+			// new webpack.NoErrorsPlugin()
 		] : [])
 	],
 
@@ -113,7 +103,9 @@ module.exports = {
 		//modulesDirectories: ['node_modules'],
 		extensions: ['', '.js', '.jsx']
 	},
-    eslint: {
-        configFile: path.resolve(__dirname, '.eslintrc')
-    }
+	eslint: {
+		configFile: path.resolve(__dirname, '.eslintrc'),
+		failOnWarning: false,
+		failOnError: true
+	}
 };

@@ -34,7 +34,7 @@ const todosReducer = (state = [], action) => {
 		case (actionTypes.ADD_TODO):
 			return [
 				...state,
-				todoReducer(undefined, action)
+				todoReducer(null, action)
 			];
 		case (actionTypes.TOGGLE_TODO):
 			return state.map(t => todoReducer(t, action));
