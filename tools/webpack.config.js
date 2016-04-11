@@ -103,7 +103,7 @@ const config = {
 		extensions: ['', '.js', '.jsx']
 	},
 	eslint: {
-		configFile: path.resolve(__dirname, '.eslintrc'),
+		configFile: path.resolve(__dirname, 'build.eslintrc'),
 		failOnWarning: false,
 		failOnError: true
 	}
