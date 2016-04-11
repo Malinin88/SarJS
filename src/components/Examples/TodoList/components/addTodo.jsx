@@ -26,6 +26,9 @@ let AddTodo = ({ dispatch }) => {
 		</div>
 	);
 };
+AddTodo.propTypes = {
+	dispatch: React.PropTypes.func.isRequired
+};
 
 /**
  * AddTodo meaning:

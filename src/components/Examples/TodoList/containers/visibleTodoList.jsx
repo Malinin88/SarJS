@@ -4,8 +4,6 @@ import TodoList from '../components/todoList.jsx';
 
 const getVisibleTodos = (todos, filter) => {
 	switch (filter) {
-		case 'SHOW_ALL':
-			return todos;
 		case 'SHOW_COMPLETED':
 			return todos.filter(
 				t => t.completed
@@ -14,6 +12,9 @@ const getVisibleTodos = (todos, filter) => {
 			return todos.filter(
 				t => !t.completed
 			);
+		case 'SHOW_ALL':
+		default:
+			return todos;
 	}
 };
 

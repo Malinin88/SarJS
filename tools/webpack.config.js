@@ -4,14 +4,15 @@
  * https://github.com/unicorn-standard/starter-kit/blob/master/webpack.config.js
  */
 
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
+
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const DEBUG = NODE_ENV === 'development';
 // const WATCH = global.WATCH === undefined ? false : global.WATCH;
 const WATCH = NODE_ENV === 'development';
 
-module.exports = {
+const config = {
 	entry: [
 		// Set up an ES6-ish environment
 		'babel-polyfill',
@@ -99,8 +100,6 @@ module.exports = {
 	 },
 	 */
 	resolve: {
-		//root: path.join(__dirname, "node_modules"),
-		//modulesDirectories: ['node_modules'],
 		extensions: ['', '.js', '.jsx']
 	},
 	eslint: {
@@ -109,3 +108,6 @@ module.exports = {
 		failOnError: true
 	}
 };
+
+export default [config];
+
