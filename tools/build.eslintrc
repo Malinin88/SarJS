@@ -70,7 +70,7 @@
     "no-sparse-arrays": 2, // disallow sparse arrays
     "no-unreachable": 2, // disallow unreachable statements after a return, throw, continue, or break statement
     "use-isnan": 2, // disallow comparisons with the value NaN
-    "valid-jsdoc": 2, // Ensure JSDoc comments are valid (off by default)
+    "valid-jsdoc": 0, // Ensure JSDoc comments are valid (off by default)
     "valid-typeof": 2, // Ensure that the results of typeof are compared against a valid string
 
     //
@@ -202,7 +202,7 @@
     //"space-return-throw-case": [1, "always"], // require a space after return, throw, and case //obsolete: (replaced by keyword-spacing)
     "space-unary-ops": [1, {"words": true, "nonwords": false}], // Require or disallow spaces before/after unary operators (words on by default, nonwords off by default)
     //"spaced-line-comment": [1, "always"], // require or disallow a space immediately following the // in a line comment (off by default) //obsolete: (replaced by spaced-comment)
-    "spaced-comment": ["error", "always", { "markers": ["/"] }], // require or disallow a space immediately following the // in a line comment
+//    "spaced-comment": ["error", "never", { "markers": ["/"] }], // require or disallow a space immediately following the // in a line comment
     "wrap-regex": 0, // require regex literals to be wrapped in parentheses (off by default)
 
     //

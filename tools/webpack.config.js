@@ -61,6 +61,9 @@ const config = {
 				}
 			}, {
 				test: /\.css$/,
+				include: [
+					path.resolve(__dirname, '../src')
+				],
 				loader: 'style!css'
 			}
 		]

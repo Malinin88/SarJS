@@ -1,0 +1,13 @@
+.b-search{
+    width: 110px;
+}
+.b-search__text{
+    display: inline-block;
+    width: 70px;
+}
+.b-search__btn{
+    display: inline-block;
+    width: 30px;
+    color: red;
+    margin-left: 2px;
+}

@@ -26,11 +26,11 @@ function bundle() {
 			}
 		}
 
-		if (global.WATCH) {
+		//if (global.WATCH) {
 			bundler.watch(200, onComplete);
-		} else {
-			bundler.run(onComplete);
-		}
+		//} else {
+		//	bundler.run(onComplete);
+		//}
 	});
 }
 
