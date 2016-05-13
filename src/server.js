@@ -1,148 +1,56 @@
 /**
- * Module dependencies.
+ * Created by Novikov on 12/05/16.
  */
-var path = require('path');
-var express = require('express');
-var debug = require('debug')('SarJS:server');
-var http = require('http');
-var errorHandler = require('errorhandler');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
 
-var log = require('./libs/log')(module);
-var config = require('./config');
-var router = require('./api/content');
+import 'babel-polyfill';
+import path from 'path';
+import express from 'express';
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import Router from './routes';
+import Html from './components/Html';
+import assets from './assets.json';
 
-const appServer = express(); //const appServer = global.server = express();
-const port = _normalizePort(process.env.PORT || config.get('defaultPort'));
-
-/**
- * View engine setup
- */
-appServer.set('views', path.join(__dirname, '../views'));
-appServer.set('view engine', 'ejs');
-
-/**
- * Middleware
- */
-// [Novikov] todo for favicon we have to change path to build/public
-appServer.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-appServer.use(logger('dev'));
-appServer.use(bodyParser.json());
-appServer.use(bodyParser.urlencoded({extended: false}));
-appServer.use(cookieParser());
+const server = global.server = express();
+const port = process.env.PORT || 5000;
+server.set('port', port);
 
 /**
  * Register Node.js middleware
  */
-appServer.use(express.static(path.join(__dirname, '../build/public')));
+server.use(express.static(path.join(__dirname, 'public')));
 
 /**
- * Register API middleware
+ * Register server-side rendering middleware
  */
-appServer.use('/', router);
+server.get('*', async (req, res, next) => {
+	try {
+		let statusCode = 200;
+		const data = { title: '', description: '', css: '', body: '', entry: assets.app.js };
+		const css = [];
+		const context = {
+			onInsertCss: value => css.push(value),
+			onSetTitle: value => (data.title = value),
+			onSetMeta: (key, value) => (data[key] = value),
+			onPageNotFound: () => (statusCode = 404)
+		};
 
-/**
- * Catch 404 and forward to error handler
- */
-appServer.use(function (req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+		await Router.dispatch({ path: req.path, context }, (state, component) => {
+			data.body = ReactDOM.renderToString(component);
+			data.css = css.join('');
+		});
+
+		const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
+		res.status(statusCode).send('<!doctype html>\n' + html);
+	} catch (err) {
+		next(err);
+	}
 });
 
 /**
- * Development error handler
- * will print stacktrace
+ * Launch the server
  */
-if (appServer.get('env') === 'development') {
-	appServer.use(errorHandler());
-}
-
-/**
- * Production error handler
- * No stacktrace leaked here
- */
-appServer.use(function (err, req, res, next) {
-	res.status(err.status || 500);
-	res.render('error', {
-		message: err.message,
-		error: {}
-	});
+server.listen(port, () => {
+	/* eslint-disable no-console */
+	console.log(`The server is running at http://localhost:${port}/`);
 });
-
-/**
- * Get port from environment and store in Express.
- */
-appServer.set('port', port);
-
-/**
- * Create HTTP server.
- */
-var server = http.createServer(appServer);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-server.listen(port);
-server.on('error', _onError);
-server.on('listening', _onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-function _normalizePort(val) {
-	var port = parseInt(val, 10);
-
-	if (isNaN(port)) {
-		// named pipe
-		return val;
-	}
-
-	if (port >= 0) {
-		// port number
-		return port;
-	}
-
-	return false;
-}
-
-/**
- * Event listener for HTTP server "error" event.
- */
-function _onError(error) {
-	if (error.syscall !== 'listen') {
-		throw error;
-	}
-
-	var bind = typeof port === 'string'
-		? 'Pipe ' + port
-		: 'Port ' + port;
-
-	// handle specific listen errors with friendly messages
-	switch (error.code) {
-		case 'EACCES':
-			console.error(bind + ' requires elevated privileges');
-			process.exit(1);
-			break;
-		case 'EADDRINUSE':
-			console.error(bind + ' is already in use');
-			process.exit(1);
-			break;
-		default:
-			throw error;
-	}
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-function _onListening() {
-	var addr = server.address();
-	var bind = typeof addr === 'string'
-		? 'pipe ' + addr
-		: 'port ' + addr.port;
-	log.info('Listening on ' + bind);
-}

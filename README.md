@@ -18,6 +18,15 @@ $ npm run build                 # or, `npm run build -- --release`
 By default, it builds in *debug* mode. If you need to build in release
 mode, just add a `-- --release` flag. This will optimize the output bundle for
 production.
+
+### How to Run
+
+```shell
+$ npm start                     # or, `npm start -- --release`
+```
+
+This will start a light-weight development server with "live reload" and
+synchronized browsing across multiple devices and browsers.
     
 ### How to create server configuration
 Node interpreter - smth like: C:\Program Files\nodejs\node.exe
