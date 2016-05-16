@@ -22,6 +22,7 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "fastclick": "^1.0.6",
+    "fbjs": "^0.8.2",
     "history": "^2.1.1",
     "morgan": "~1.6.1",
     "react-routing": "0.0.7",
