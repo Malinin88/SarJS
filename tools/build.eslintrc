@@ -45,7 +45,7 @@
     //
     // The following rules point out areas where you might have made mistakes.
     //
-    "comma-dangle": 2, // disallow or enforce trailing commas
+    "comma-dangle": ["warn", "never"], // disallow or enforce trailing commas
     "no-cond-assign": 2, // disallow assignment in conditional expressions
     "no-console": 1, // disallow use of console (off by default in the node environment)
     "no-constant-condition": 2, // disallow use of constant expressions in conditions
@@ -70,7 +70,7 @@
     "no-sparse-arrays": 2, // disallow sparse arrays
     "no-unreachable": 2, // disallow unreachable statements after a return, throw, continue, or break statement
     "use-isnan": 2, // disallow comparisons with the value NaN
-    "valid-jsdoc": 0, // Ensure JSDoc comments are valid (off by default)
+    "valid-jsdoc": 2, // Ensure JSDoc comments are valid (off by default)
     "valid-typeof": 2, // Ensure that the results of typeof are compared against a valid string
 
     //
@@ -111,10 +111,10 @@
     "no-octal": 2, // disallow use of octal literals
     "no-octal-escape": 2, // disallow use of octal escape sequences in string literals, such as var foo = "Copyright \251";
     "no-param-reassign": 2, // disallow reassignment of function parameters (off by default)
-    "no-process-env": 2, // disallow use of process.env (off by default)
+    //"no-process-env": 2, // disallow use of process.env (off by default)
     "no-proto": 2, // disallow usage of __proto__ property
     "no-redeclare": 2, // disallow declaring the same variable more then once
-    "no-return-assign": 2, // disallow use of assignment in return statement
+    "no-return-assign": ["error", "except-parens"], // disallow use of assignment in return statement
     "no-script-url": 2, // disallow use of javascript: urls.
     "no-self-compare": 2, // disallow comparisons where both sides are exactly the same (off by default)
     "no-sequences": 2, // disallow use of comma operator
@@ -147,7 +147,7 @@
     "no-shadow-restricted-names": 2, // disallow shadowing of names such as arguments
     "no-undef": 2, // disallow use of undeclared variables unless mentioned in a /*global */ block
     "no-undef-init": 2, // disallow use of undefined when initializing variables
-    "no-undefined": 2, // disallow use of undefined variable (off by default)
+    //"no-undefined": 2, // disallow use of undefined variable (off by default)
     "no-unused-vars": 2, // disallow declaration of variables that are not used in the code
     "no-use-before-define": 2, // disallow use of variables before they are defined
 
@@ -169,7 +169,7 @@
     "key-spacing": [1, {"beforeColon": false, "afterColon": true}], // enforces spacing between keys and values in object literal properties
     "keyword-spacing": ["error", {"before": true, "after": true, "overrides": {}}], // require a space after certain keywords
     "max-nested-callbacks": [1, 3], // specify the maximum depth callbacks can be nested (off by default)
-    "new-cap": [1, {newIsCap: true, capIsNew: false}], // require a capital letter for constructors
+    "new-cap": [1, {"newIsCap": true, "capIsNew": false}], // require a capital letter for constructors
     "new-parens": 1, // disallow the omission of parentheses when invoking a constructor with no arguments
     "newline-after-var": 0, // allow/disallow an empty newline after var statement (off by default)
     "no-array-constructor": 1, // disallow use of the Array constructor
@@ -183,7 +183,6 @@
     "no-ternary": 0, // disallow the use of ternary operators (off by default)
     "no-trailing-spaces": 1, // disallow trailing whitespace at the end of lines
     "no-underscore-dangle": 1, // disallow dangling underscores in identifiers
-    //"no-wrap-func": 1, // disallow wrapping of non-IIFE statements in parens // obsolete:(replaced by no-extra-parens)
     "object-curly-spacing": ["error", "always"], // require or disallow spaces inside brackets
     "one-var": [1, "never"], // allow just one var statement per function (off by default)
     "operator-assignment": [1, "always"], // require assignment operator shorthand where possible or prohibit it entirely (off by default)
@@ -193,16 +192,12 @@
     "semi": [1, "always"], // require or disallow use of semicolons instead of ASI
     "semi-spacing": [1, {"before": false, "after": true}], // enforce spacing before and after semicolons
     "sort-vars": 0, // sort variables within the same declaration block (off by default)
-    //"space-after-keywords": [1, "always"], // require a space after certain keywords (off by default) // obsolete:(replaced by keyword-spacing)
     "space-before-blocks": [1, "always"], // require or disallow space before blocks (off by default)
     "space-before-function-paren": [1, {"anonymous": "always", "named": "never"}], // require or disallow space before function opening parenthesis (off by default)
-    //"space-in-brackets": [1, "never"], // require or disallow spaces inside brackets (off by default) // obsolete:(replaced by object-curly-spacing, array-bracket-spacing, computed-property-spacing)
     "space-in-parens": [1, "never"], // require or disallow spaces inside parentheses (off by default)
-//    "space-infix-ops": [1, "always"], // require spaces around operators
-    //"space-return-throw-case": [1, "always"], // require a space after return, throw, and case //obsolete: (replaced by keyword-spacing)
+    //"space-infix-ops": [1, "always"], // require spaces around operators
     "space-unary-ops": [1, {"words": true, "nonwords": false}], // Require or disallow spaces before/after unary operators (words on by default, nonwords off by default)
-    //"spaced-line-comment": [1, "always"], // require or disallow a space immediately following the // in a line comment (off by default) //obsolete: (replaced by spaced-comment)
-//    "spaced-comment": ["error", "never", { "markers": ["/"] }], // require or disallow a space immediately following the // in a line comment
+    "spaced-comment": ["error", "always", { "markers": ["/"] }], // require or disallow a space immediately following the // in a line comment
     "wrap-regex": 0, // require regex literals to be wrapped in parentheses (off by default)
 
     //
@@ -244,6 +239,6 @@
     "react/prop-types": 2, // Prevent missing props validation in a React component definition
     "react/react-in-jsx-scope": 2, // Prevent missing React when using JSX
     "react/self-closing-comp": 2, // Prevent extra closing tags for components without children
-    "react/wrap-multilines": 2, // Prevent missing parentheses around multilines JSX
+    "react/wrap-multilines": 2 // Prevent missing parentheses around multilines JSX
   }
 }
