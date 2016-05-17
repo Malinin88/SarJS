@@ -27,16 +27,7 @@ $ npm start                     # or, `npm start -- --release`
 
 This will start a light-weight development server with "live reload" and
 synchronized browsing across multiple devices and browsers.
-    
-### How to create server configuration
-Node interpreter - smth like: C:\Program Files\nodejs\node.exe
-Javascript file: src\server.js
-Also tick "Single instance only" - for only one server running
-For finding "config" module in current folder too
-    Environment variables: NODE_PATH=.
-For logger:
-    Environment variables: NODE_ENV=development
-    
+
 ### How to start tests:
     In console run:
     npm test
